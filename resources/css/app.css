@@ -1,0 +1,60 @@
+@import url(https://fonts.bunny.net/css?family=Inter:400,500,600,700);
+@import 'tailwindcss';
+
+@plugin "@tailwindcss/typography";
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-primary-50: rgb(235, 242, 248);
+    --color-primary-100: rgb(212, 226, 238);
+    --color-primary-200: rgb(176, 203, 223);
+    --color-primary-300: rgb(128, 172, 204);
+    --color-primary-400: rgb(78, 138, 182);
+    --color-primary-500: rgb(39, 106, 154);
+    --color-primary-600: rgb(21, 75, 121);
+    --color-primary-700: rgb(18, 63, 102);
+    --color-primary-800: rgb(15, 52, 84);
+    --color-primary-900: rgb(13, 44, 71);
+    --color-primary-950: rgb(8, 27, 44);
+
+    --color-secondary-50: oklch(98.5% 0.002 255.11);
+    --color-secondary-100: oklch(96.933% 0.00181 271.81);
+    --color-secondary-200: oklch(93.265% 0.00363 271.8);
+    --color-secondary-300: oklch(87.898% 0.00644 265.61);
+    --color-secondary-400: oklch(71.63% 0.01725 268.6);
+    --color-secondary-500: oklch(56.263% 0.02106 271.64);
+    --color-secondary-600: oklch(45.995% 0.02288 264.07);
+    --color-secondary-700: oklch(38.927% 0.02569 267.01);
+    --color-secondary-800: oklch(29.66% 0.0235 264.12);
+    --color-secondary-900: oklch(21.93% 0.02925 271.94);
+    --color-secondary-950: oklch(13% 0.028 268.96);
+
+    --color-accent-50: rgb(255, 236, 241);
+    --color-accent-100: rgb(254, 213, 223);
+    --color-accent-200: rgb(252, 175, 193);
+    --color-accent-300: rgb(249, 128, 158);
+    --color-accent-400: rgb(242, 93, 130);
+    --color-accent-500: rgb(237, 67, 112);
+    --color-accent-600: rgb(235, 79, 116);
+    --color-accent-700: rgb(200, 58, 92);
+    --color-accent-800: rgb(165, 46, 75);
+    --color-accent-900: rgb(136, 38, 63);
+    --color-accent-950: rgb(86, 22, 39);
+}
+
+@layer utilities {
+    .cd-box-shadow {
+        box-shadow: 1px 0 0 0 theme('colors.secondary.300'),
+        0 1px 0 0 theme('colors.secondary.300'),
+        1px 1px 0 0 theme('colors.secondary.300'),
+        1px 0 0 0 theme('colors.secondary.300') inset,
+        0 1px 0 0 theme('colors.secondary.300') inset;
+    }
+}
+

@@ -1,0 +1,26 @@
+on: push
+name: 🚀 Deploy website on push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftp.flyttbil.se
+          server-dir: casinodudes.se/
+          username: darpan@flyttbil.se
+          password: ${{ secrets.FTP_PASSWORD }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/.idea*
+            **/.idea*/**
+            **/node_modules/**
+            **/vendor/**
+            **/tests/**
