@@ -20,7 +20,7 @@
                     @foreach($visibleHighlights as $highlight)
                         @if($highlight['is_visible'])
                             <div class="flex items-center gap-2">
-                                <x-icons.check class="w-8 h-8 stroke-green-600" />
+                                <x-icons.check class="w-8 h-8 stroke-green-600"/>
                                 <span class="ms-2">{{ $highlight['title'] }}</span>
                             </div>
                         @endif
@@ -28,5 +28,11 @@
                 </div>
             @endif
         </div>
+    </x-layouts.container>
+
+    <x-layouts.container class="pt-8 sticky bottom-4">
+        <x-button-link variant="accent" size="xl" href="{{ $casino->link }}" target="_blank" class="w-full">
+            Besök casino
+        </x-button-link>
     </x-layouts.container>
 </section>

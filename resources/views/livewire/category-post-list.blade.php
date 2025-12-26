@@ -16,11 +16,11 @@
                     <x-post.meta :post="$post"/>
                     <x-post.title :post="$post"/>
                     <x-post.excerpt :content="$post->excerpt"/>
-                    <x-button-link href="{{ route('posts.detail', $post->slug) }}" class="mt-2">Read More</x-button-link>
+                    <x-button-link href="{{ route('posts.detail', $post->slug) }}" class="mt-2">Läs mer</x-button-link>
                 </div>
             </article>
         @empty
-            <x-empty>No posts found.</x-empty>
+            <x-empty>Inga inlägg hittades.</x-empty>
         @endforelse
     </x-layouts.container>
 
