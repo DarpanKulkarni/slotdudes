@@ -1,6 +1,6 @@
-<svg {{ $attributes }} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<svg {{ $attributes }} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-    <path d="M4 6h16"/>
-    <path d="M7 12h13"/>
-    <path d="M10 18h10"/>
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <path d="M4 9h16"/>
+    <path d="M10 15h10"/>
 </svg>
