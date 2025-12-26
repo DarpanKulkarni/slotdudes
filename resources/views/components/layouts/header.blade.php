@@ -51,6 +51,7 @@
             </button>
         </div>
 
+        <!-- SEARCH BAR -->
         <div
             x-show="searchOpen"
             class="bg-primary-600 fixed top-0 inset-x-0 flex items-center h-20"
@@ -83,5 +84,6 @@
         </div>
     </header>
 
+    <!-- ASIDE MENU -->?
     <x-layouts.aside/>
 </div>
