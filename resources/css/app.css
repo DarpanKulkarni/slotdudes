@@ -49,12 +49,45 @@
 }
 
 @layer utilities {
-    .cd-box-shadow {
+    /*.cd-box-shadow {
         box-shadow: 1px 0 0 0 theme('colors.secondary.300'),
         0 1px 0 0 theme('colors.secondary.300'),
         1px 1px 0 0 theme('colors.secondary.300'),
         1px 0 0 0 theme('colors.secondary.300') inset,
         0 1px 0 0 theme('colors.secondary.300') inset;
+    }*/
+    .cd-casino-grid {
+        --gap: 2px;
+        --line-offset: calc(var(--gap) / 2);
+        --line-thickness: 1px;
+        --line-color: theme('colors.secondary.300');
+
+        gap: var(--gap);
+    }
+
+    .cd-casino-grid__item {
+        position: relative;
+    }
+
+    .cd-casino-grid__item::before,
+    .cd-casino-grid__item::after {
+        content: '';
+        position: absolute;
+        background-color: var(--line-color);
+        z-index: 1;
+    }
+
+    .cd-casino-grid__item::after {
+        inline-size: 100%;
+        block-size: var(--line-thickness);
+        inset-inline-start: 0;
+        inset-block-start: calc(var(--line-offset) * -1);
+    }
+
+    .cd-casino-grid__item::before {
+        inline-size: var(--line-thickness);
+        block-size: 100%;
+        inset-inline-start: calc(var(--line-offset) * -1);
     }
 }
 

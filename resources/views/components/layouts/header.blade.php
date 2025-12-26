@@ -14,7 +14,7 @@
         class="relative bg-primary-600 transition-all duration-300"
     >
         <x-layouts.container
-            class="flex flex-col items-center justify-center aspect-3/1 space-y-8 py-20">
+            class="flex flex-col items-center justify-center space-y-8 py-20">
             <a href="{{url('/')}}">
                 <img
                     class="w-68"
