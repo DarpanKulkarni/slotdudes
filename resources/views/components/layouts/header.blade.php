@@ -84,6 +84,6 @@
         </div>
     </header>
 
-    <!-- ASIDE MENU -->?
+    <!-- ASIDE MENU -->
     <x-layouts.aside/>
 </div>
