@@ -18,12 +18,12 @@
                     >
                         <x-button-link href="{{ $casino->link }}" variant="green" class="w-full">
                             Visit Casino
-                            <span><x-icons.chevron-right class="w-4 h-4 ms-2"/></span>
+                            <span><x-icons.chevron-right class="w-4 h-4 ms-1 md:ms-2 stroke-3"/></span>
                         </x-button-link>
 
                         <x-button-link href="{{ route('casino.detail', $casino->slug) }}" variant="secondary" class="w-full">
                             Read More
-                            <span><x-icons.chevron-right class="w-4 h-4 ms-2"/></span>
+                            <span><x-icons.chevron-right class="w-4 h-4 ms-1 md:ms-2 stroke-3"/></span>
                         </x-button-link>
                     </div>
                 </div>
