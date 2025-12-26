@@ -23,7 +23,7 @@
                 >
             </a>
 
-            <div class="px-2 py-1 bg-amber-400 text-primary-600 w-72 transform -rotate-3">
+            <div class="px-2 py-1 bg-amber-400 text-primary-600 w-56 md:w-72 transform -rotate-3">
                 <h2 class="uppercase font-bold text-base lg:text-lg text-center leading-[1.2]">Online Casinon Med Svensk Spellicens</h2>
             </div>
         </x-layouts.container>
