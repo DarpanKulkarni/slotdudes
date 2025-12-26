@@ -62,7 +62,7 @@
         --line-thickness: 1px;
         --line-color: theme('colors.secondary.300');
 
-        gap: var(--gap);
+        gap: 0;
     }
 
     .cd-casino-grid__item {
