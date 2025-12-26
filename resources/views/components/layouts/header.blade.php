@@ -9,9 +9,12 @@
     @scroll.window="isScrolled = (window.pageYOffset >= (headerHeight - 80))"
     class="z-50"
 >
-    <header x-ref="header" class="relative bg-primary-600 transition-all duration-300">
+    <header
+        x-ref="header"
+        class="relative bg-primary-600 transition-all duration-300"
+    >
         <x-layouts.container
-            class="flex items-center justify-center aspect-3/1 py-20">
+            class="flex flex-col items-center justify-center aspect-3/1 space-y-8 py-20">
             <a href="{{url('/')}}">
                 <img
                     class="w-68"
@@ -19,37 +22,13 @@
                     alt="CasinoDudes logo"
                 >
             </a>
+
+            <div class="px-2 py-1 bg-amber-400 text-primary-600 w-72 transform -rotate-3">
+                <h2 class="uppercase text-center leading-[1.2]">Online Casinon Med Svensk Spellicens</h2>
+            </div>
         </x-layouts.container>
 
-        <div
-            class="fixed top-0 inset-x-0 flex justify-between items-center h-20 px-4"
-            :class="isScrolled ? 'bg-primary-600' : 'bg-transparent'"
-        >
-            <button
-                @click="searchOpen = !searchOpen"
-                class="text-white z-50 p-1 rounded-md hover:bg-white/10 transition-colors duration-300 cursor-pointer"
-                :class="{ 'text-gray-800': searchOpen }"
-            >
-                <x-icons.search class="w-12 h-12 p-2"/>
-            </button>
-
-            <a href="{{url('/')}}">
-                <img
-                    class="w-20 hidden"
-                    :class="isScrolled ? 'inline-block' : 'hidden'"
-                    src="{{ app(\App\Settings\SiteSettings::class)->getSiteLogoUrl() }}"
-                    alt="CasinoDudes logo"
-                >
-            </a>
-
-            <button
-                @click="menuOpen = !menuOpen"
-                class="text-white z-50 p-1 rounded-md hover:bg-white/10 transition-colors duration-300 cursor-pointer"
-                :class="{ 'text-gray-800': menuOpen }"
-            >
-                <x-icons.menu-toggle class="w-12 h-12"/>
-            </button>
-        </div>
+        <x-layouts.header-top-bar />
     </header>
 
     <x-layouts.aside/>
