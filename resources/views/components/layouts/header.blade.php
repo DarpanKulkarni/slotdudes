@@ -9,12 +9,9 @@
     @scroll.window="isScrolled = (window.pageYOffset >= (headerHeight - 80))"
     class="z-50"
 >
-    <header
-        x-ref="header"
-        class="relative bg-primary-600 transition-all duration-300"
-    >
+    <header x-ref="header" class="relative bg-primary-600 transition-all duration-300">
         <x-layouts.container
-            class="flex flex-col items-center justify-center space-y-8 py-10 md:py-20">
+            class="flex flex-col items-center justify-center space-y-8 py-10 md:py-16">
             <a href="{{url('/')}}">
                 <img
                     class="w-36 md:w-44 lg:w-56"
