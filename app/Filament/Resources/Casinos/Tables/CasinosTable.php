@@ -5,22 +5,13 @@ namespace App\Filament\Resources\Casinos\Tables;
 use App\Filament\Filters\DateFilter;
 use App\Filament\Filters\StatusSelectFilter;
 use Filament\Actions\Action;
-use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
-use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\Select;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\Layout\Stack;
-use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Filters\Filter;
-use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Carbon;
 
 class CasinosTable
 {
@@ -74,11 +65,15 @@ class CasinosTable
             ->paginated(false)
             ->reorderable('order')
             ->defaultSort('order')
+            ->modifyQueryUsing(function ($query) {
+                return $query->orderByRaw("CASE WHEN status = 'draft' THEN 1 ELSE 0 END ASC")
+                    ->orderBy('sort_order', 'asc');
+            })
             ->extraAttributes(['class' => 'fi-ta-casinos'])
             ->contentGrid([
                 'default' => 2,
-                'sm' => 2,
-                'md' => 5,
+                'md' => 3,
+                'lg' => 4,
             ]);
     }
 }
