@@ -1,23 +1,13 @@
 <div
-    x-data="{
-        menuOpen: false,
-        searchOpen: false,
-        isScrolled: false,
-        headerHeight: 0,
-    }"
+    x-data="{menuOpen: false, searchOpen: false, isScrolled: false, headerHeight: 0}"
     x-init="$nextTick(() => { headerHeight = $refs.header.offsetHeight })"
     @scroll.window="isScrolled = (window.pageYOffset >= (headerHeight - 80))"
     class="z-50"
 >
     <header x-ref="header" class="relative bg-primary-600 transition-all duration-300 shadow-lg shadow-gray-800/40">
-        <x-layouts.container
-            class="flex flex-col items-center justify-center space-y-8 py-10 md:py-16">
+        <x-layouts.container class="flex flex-col items-center justify-center space-y-8 py-10 md:py-16">
             <a href="{{url('/')}}">
-                <img
-                    class="w-56"
-                    src="{{ app(\App\Settings\SiteSettings::class)->getSiteLogoUrl() }}"
-                    alt="CasinoDudes logo"
-                >
+                <img class="w-56" src="{{ app(\App\Settings\SiteSettings::class)->getSiteLogoUrl() }}" alt="CasinoDudes logo">
             </a>
 
             <div class="px-2 py-1 bg-amber-400 text-primary-600 w-72 transform -rotate-3">
