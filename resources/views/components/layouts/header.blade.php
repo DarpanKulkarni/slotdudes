@@ -14,7 +14,9 @@
             class="flex flex-col items-center justify-center space-y-8 pt-10 md:pt-16 pb-10 md:pb-16"
             x-bind:class="searchOpen ? 'pt-26 md:pt-32' : 'pt-10 md:pt-16'"
         >
-            <a href="{{url('/')}}"><img class="w-48 md:w-56" src="{{ app(\App\Settings\SiteSettings::class)->getSiteLogoUrl() }}" alt="CasinoDudes logo"></a>
+            <a href="{{url('/')}}">
+                <img class="w-52 md:w-60" src="{{ app(\App\Settings\SiteSettings::class)->getSiteLogoUrl() }}" alt="CasinoDudes logo">
+            </a>
 
             <div class="px-2 py-1 bg-amber-400 text-primary-600 w-64 md:w-72 transform -rotate-3">
                 <h2 class="uppercase font-bold text-xl text-center leading-[1.2]">Online Casinon Med Svensk Spellicens</h2>
