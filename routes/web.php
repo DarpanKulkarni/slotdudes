@@ -9,7 +9,7 @@ use App\Livewire\PostList;
 use App\Models\Page;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', PageDetail::class)->name('home');
+Route::get('/', PageDetail::class)->name('page.detail');
 Route::get('/casinos/{slug}', CasinoDetail::class)->name('casino.detail');
 Route::get('/generate-sitemap', [SitemapController::class, 'generate'])->name('sitemap.generate');
 

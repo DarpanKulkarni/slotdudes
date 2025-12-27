@@ -20,7 +20,11 @@
     @vite(['resources/css/app.css'])
 </head>
 <body class="font-sans antialiased text-xl flex flex-col min-h-dvh">
-<x-layouts.header/>
+@if (request()->is('/'))
+    <x-layouts.header />
+@else
+    <x-layouts.header-inner-pages />
+@endif
 <main class="flex flex-col flex-1 grow">
     {{ $slot }}
 </main>
