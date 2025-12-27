@@ -14,25 +14,29 @@
 <aside
     x-show="menuOpen"
     x-transition:enter="transform transition ease-out duration-200"
-    x-transition:enter-start="translate-x-full"
+    x-transition:enter-start="-translate-x-full"
     x-transition:enter-end="translate-x-0"
     x-transition:leave="transform transition ease-in duration-200"
     x-transition:leave-start="translate-x-0"
-    x-transition:leave-end="translate-x-full"
-    class="fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 overflow-y-auto"
+    x-transition:leave-end="-translate-x-full"
+    class="fixed top-0 left-0 h-full w-full md:w-115 bg-primary-600 shadow-xl z-50 overflow-y-auto"
     style="display: none;"
 >
-    <div class="p-6 border-b border-gray-200">
+    <div class="flex items-center justify-between py-6 px-8 md:px-12 border-b border-white/10">
+        <a href="url('/)">
+            <img class="w-20" src="{{ app(\App\Settings\SiteSettings::class)->getSiteLogoUrl() }}" alt="CasinoDudes logo">
+        </a>
+
         <button
             @click="menuOpen = false"
-            class="p-1 rounded-md hover:bg-gray-100 transition-colors duration-300 cursor-pointer"
+            class="p-1 ms-auto rounded-md hover:bg-primary-700 transition-colors duration-300 cursor-pointer"
         >
-            <x-icons.menu-close class="w-6 h-6"/>
+            <x-icons.menu-close class="w-6 h-6 stroke-secondary-50"/>
         </button>
     </div>
 
-    <div class="p-6">
-        <nav class="space-y-4">
+    <div class="py-8 px-8 md:px-12">
+        <nav class="flex flex-col items-start space-y-8">
             @php
                 use App\Models\Page;
 
@@ -61,7 +65,16 @@
                 @endphp
 
                 <a href="{{ $url }}"
-                   class="block py-3 px-4 rounded-lg transition-colors duration-200 {{ $isActive ? 'bg-primary-50 text-primary-600 font-medium' : 'text-gray-600 hover:bg-gray-100' }}">
+                    @class([
+                        // 1. Base classes (always applied)
+                        'text-2xl md:text-3xl font-medium uppercase',
+
+                        // 2. Active state classes
+                        'text-secondary-50 border-b-3 border-secondary-50' => $isActive,
+
+                        // 3. Inactive state classes
+                        'text-secondary-50' => ! $isActive,
+                    ])>
                     {{ $page->title }}
                 </a>
             @endforeach
