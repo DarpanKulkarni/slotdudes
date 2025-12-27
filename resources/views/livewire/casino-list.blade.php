@@ -12,8 +12,7 @@
                     <img src="{{ $casino->getFirstMediaUrl('logos', 'thumb') }}" alt="{{ $casino->name . ' logo' }}" class="w-full">
 
                     <div
-                        class="absolute flex shrink flex-col items-center justify-center inset-0 p-4 gap-2 transition-opacity duration-300
-                           opacity-0 pointer-events-none lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto"
+                        class="absolute flex shrink flex-col items-center justify-center inset-0 p-4 gap-2 transition-opacity duration-300 opacity-0 pointer-events-none lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto"
                         :class="open ? 'opacity-100! pointer-events-auto!' : ''"
                     >
                         <x-button-link href="{{ $casino->link }}" variant="green" class="w-full px-2!" target="_blank">
