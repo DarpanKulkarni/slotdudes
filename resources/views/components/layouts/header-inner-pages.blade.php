@@ -5,13 +5,18 @@
     class="sticky top-0 inset-x-0 z-40"
 >
     <header class=" flex justify-between items-center h-20 px-4 bg-primary-600 transition-all duration-300 shadow-lg shadow-gray-800/40">
-        <button
-            @click="searchOpen = !searchOpen"
+        <a
+            href="{{ url('/') }}"
+            @click="
+                if (document.referrer && document.referrer.includes(window.location.host)) {
+                    $event.preventDefault();
+                    history.back();
+                }
+            "
             class="text-white z-50 p-1 rounded-md hover:bg-white/10 transition-colors duration-300 cursor-pointer"
-            :class="{ 'text-gray-800': searchOpen }"
         >
-            <x-icons.search class="w-12 h-12 p-2"/>
-        </button>
+            <x-icons.arrow-left class="w-12 h-12 p-1"/>
+        </a>
 
         <a href="{{url('/')}}">
             <img
