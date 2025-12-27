@@ -7,7 +7,7 @@
 @php
     $sizeClasses = [
         'sm' => 'px-4 py-2 text-xs',
-        'default' => 'px-2 md:px-8 py-4 text-sm',
+        'default' => 'px-8 py-4 text-sm',
         'lg' => 'px-8 py-2 text-lg',
         'xl' => 'px-8 md:px-14 py-4 text-lg md:text-2xl'
     ];
