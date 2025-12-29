@@ -49,6 +49,6 @@
         x-cloak
         @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
     >
-        <x-icons.chevron-right class="w-10 h-10 -rotate-90"/>
+        <x-icons.chevron-right class="w-9 md:w-10 h-9 md:h-10 -rotate-90"/>
     </x-button-link>
 </section>
