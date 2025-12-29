@@ -42,7 +42,7 @@
     <x-button-link
         tag="button"
         variant="primary"
-        class="aspect-square p-2! fixed right-4 bottom-9 cursor-pointer shadow-lg shadow-gray-800/40"
+        class="aspect-square p-2! fixed right-4 bottom-9 cursor-pointer shadow-lg shadow-gray-800/40 z-50"
         x-data="{ show: false }"
         @scroll.window="show = (window.scrollY > 100)"
         x-show="show"
