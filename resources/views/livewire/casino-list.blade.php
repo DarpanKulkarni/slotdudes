@@ -17,12 +17,12 @@
                     >
                         <x-button-link href="{{ $casino->link }}" variant="green" class="w-full px-2!" target="_blank">
                             Besök casino
-                            <span><x-icons.chevron-right class="w-4 h-4 ms-1 md:ms-2 stroke-3"/></span>
+                            <span><x-icons.chevron-right class="w-4 h-4 ms-0.5 md:ms-2 stroke-3"/></span>
                         </x-button-link>
 
                         <x-button-link href="{{ route('casino.detail', $casino->slug) }}" variant="secondary" class="w-full px-2!">
                             Läs mer
-                            <span><x-icons.chevron-right class="w-4 h-4 ms-1 md:ms-2 stroke-3"/></span>
+                            <span><x-icons.chevron-right class="w-4 h-4 ms-0.5 md:ms-2 stroke-3"/></span>
                         </x-button-link>
                     </div>
                 </div>
