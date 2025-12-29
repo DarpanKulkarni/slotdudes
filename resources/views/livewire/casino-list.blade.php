@@ -38,4 +38,17 @@
             </div>
         @endif
     </x-layouts.container>
+
+    <x-button-link
+        tag="button"
+        variant="primary"
+        class="aspect-square p-2! fixed right-4 bottom-9 cursor-pointer shadow-lg shadow-gray-800/40"
+        x-data="{ show: false }"
+        @scroll.window="show = (window.scrollY > 100)"
+        x-show="show"
+        x-cloak
+        @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    >
+        <x-icons.chevron-right class="w-10 h-10 -rotate-90"/>
+    </x-button-link>
 </section>
