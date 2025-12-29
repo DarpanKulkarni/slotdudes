@@ -31,7 +31,7 @@
     </x-layouts.container>
 
     <x-layouts.container class="pt-8 sticky bottom-4">
-        <x-button-link variant="accent" size="xl" href="{{ $casino->link }}" target="_blank" class="w-full">
+        <x-button-link variant="green" size="xl" href="{{ $casino->link }}" target="_blank" class="w-full">
             Besök casino
         </x-button-link>
     </x-layouts.container>

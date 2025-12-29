@@ -19,8 +19,6 @@
         'primary-outline' => 'border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white focus-visible:ring-primary-600',
         'secondary' => 'bg-secondary-500 hover:bg-secondary-600 focus-visible:ring-secondary-600 text-white',
         'secondary-outline' => 'border-2 border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-white focus-visible:ring-secondary-600',
-        'accent' => 'bg-accent-500 hover:bg-accent-600 focus-visible:ring-accent-600 text-white',
-        'accent-outline' => 'border-2 border-accent-500 text-accent-500 hover:bg-accent-500 hover:text-white focus-visible:ring-accent-600',
         'green' => 'bg-green-500 hover:bg-green-600 focus-visible:ring-green-600 text-white',
         'green-outline' => 'border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white focus-visible:ring-green-600',
     ];

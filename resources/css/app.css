@@ -34,18 +34,6 @@
     --color-secondary-800: oklch(29.66% 0.0235 264.12);
     --color-secondary-900: oklch(21.93% 0.02925 271.94);
     --color-secondary-950: oklch(13% 0.028 268.96);
-
-    --color-accent-50: rgb(255, 236, 241);
-    --color-accent-100: rgb(254, 213, 223);
-    --color-accent-200: rgb(252, 175, 193);
-    --color-accent-300: rgb(249, 128, 158);
-    --color-accent-400: rgb(242, 93, 130);
-    --color-accent-500: rgb(237, 67, 112);
-    --color-accent-600: rgb(235, 79, 116);
-    --color-accent-700: rgb(200, 58, 92);
-    --color-accent-800: rgb(165, 46, 75);
-    --color-accent-900: rgb(136, 38, 63);
-    --color-accent-950: rgb(86, 22, 39);
 }
 
 @layer utilities {
