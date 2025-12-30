@@ -7,7 +7,6 @@
                 @click.outside="open = false"
                 class="flex items-center gap-1 cursor-pointer"
             >
-                {{--Sort by:--}}
                 <span class="font-bold text-gray-800 flex items-center gap-1">
                     @switch($sort)
                         @case('recent') Most Recent @break
