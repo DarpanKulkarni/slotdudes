@@ -1,5 +1,46 @@
-<section>
-    <x-layouts.container class="py-12">
+<section class="space-y-8">
+    <x-layouts.container class="flex justify-end mt-8">
+        <div x-data="{ open: false }" class="relative z-20">
+            <x-button-link
+                tag="button" variant="ghost" size="sm"
+                @click="open = !open"
+                @click.outside="open = false"
+                class="flex items-center gap-1 cursor-pointer"
+            >
+                {{--Sort by:--}}
+                <span class="font-bold text-gray-800 flex items-center gap-1">
+                    @switch($sort)
+                        @case('recent') Most Recent @break
+                        @case('alphabetical') Alphabetical @break
+                        @default Featured
+                    @endswitch
+                        <x-icons.chevron-right class="w-4 h-4 stroke-2 rotate-90"/>
+                    </span>
+            </x-button-link>
+
+            <div
+                x-show="open"
+                x-cloak
+                x-transition.origin.top.right
+                class="absolute right-0 top-full mt-2 w-40 bg-white shadow-xl rounded-lg border border-gray-100 overflow-hidden"
+            >
+                <button wire:click="setSort('featured'); open = false"
+                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-gray-50 {{ $sort === 'featured' ? 'text-primary-600 font-bold bg-gray-50' : 'text-gray-600' }}">
+                    Featured
+                </button>
+                <button wire:click="setSort('recent'); open = false"
+                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-gray-50 {{ $sort === 'recent' ? 'text-primary-600 font-bold bg-gray-50' : 'text-gray-600' }}">
+                    Most Recent
+                </button>
+                <button wire:click="setSort('alphabetical'); open = false"
+                        class="w-full text-left px-4 py-2.5 text-sm hover:bg-gray-50 {{ $sort === 'alphabetical' ? 'text-primary-600 font-bold bg-gray-50' : 'text-gray-600' }}">
+                    Alphabetical
+                </button>
+            </div>
+        </div>
+    </x-layouts.container>
+
+    <x-layouts.container class="relative">
         <div class="cd-casino-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 overflow-hidden">
             @foreach ($this->casinos as $casino)
                 <div
@@ -28,9 +69,16 @@
                 </div>
             @endforeach
         </div>
+
+        <div wire:loading.flex wire:target="setSort" class="absolute inset-0 z-10 justify-center pt-20 bg-white/70 backdrop-blur-[1px] transition-all duration-300">
+            <div class="flex flex-col items-center gap-2 sticky top-40">
+                <x-icons.loader class="w-10 h-10 text-primary-600 animate-spin" />
+                <span class="text-primary-800 font-medium text-sm tracking-wide">Please wait...</span>
+            </div>
+        </div>
     </x-layouts.container>
 
-    <x-layouts.container class="flex justify-center pb-12">
+    <x-layouts.container class="flex justify-center">
         @if($this->casinos->count() < $this->totalCasinos)
             <x-button-link tag="button" variant="secondary-outline" wire:click="loadMore" wire:loading.attr="disabled" class="cursor-pointer">
                 <span wire:loading.remove wire:target="loadMore">Load more</span>

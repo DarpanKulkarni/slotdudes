@@ -21,6 +21,7 @@
         'secondary-outline' => 'border-2 border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-white focus-visible:ring-secondary-600',
         'green' => 'bg-green-500 hover:bg-green-600 focus-visible:ring-green-600 text-white',
         'green-outline' => 'border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white focus-visible:ring-green-600',
+        'ghost' => 'bg-transparent text-secondary-600 hover:bg-secondary-50 focus-visible:ring-secondary-600',
     ];
 
     $baseClasses = 'inline-flex items-center justify-center text-center rounded-full uppercase font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed';

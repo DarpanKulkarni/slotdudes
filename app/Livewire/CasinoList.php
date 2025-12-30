@@ -7,12 +7,16 @@ use App\Settings\SiteSettings;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\View;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Url; // Import Url attribute
 use Livewire\Component;
 
 class CasinoList extends Component
 {
-    // 1. Remove WithPagination trait as we are appending, not paging
     public int $perPage;
+
+    // 1. Add sort property with Url attribute so it persists on refresh
+    #[Url]
+    public string $sort = 'featured';
 
     public function mount(): void
     {
@@ -24,6 +28,13 @@ class CasinoList extends Component
         $this->perPage += app(SiteSettings::class)->casinosPerPage;
     }
 
+    public function setSort(string $sort): void
+    {
+        $this->sort = $sort;
+        // Optional: Reset perPage to default when sorting to avoid loading huge lists instantly
+        // $this->perPage = app(SiteSettings::class)->casinosPerPage;
+    }
+
     #[Computed]
     public function totalCasinos(): int
     {
@@ -33,9 +44,12 @@ class CasinoList extends Component
     #[Computed]
     public function casinos(): Collection
     {
-        return Casino::select('id', 'name', 'slug', 'link', 'order')
+        // 2. Update query to handle sorting logic
+        return Casino::select('id', 'name', 'slug', 'link', 'order', 'created_at')
             ->whereStatus('published')
-            ->orderBy('order')
+            ->when($this->sort === 'featured', fn($q) => $q->orderBy('order', 'asc'))
+            ->when($this->sort === 'recent', fn($q) => $q->orderBy('created_at', 'desc'))
+            ->when($this->sort === 'alphabetical', fn($q) => $q->orderBy('name', 'asc'))
             ->take($this->perPage)
             ->get();
     }
