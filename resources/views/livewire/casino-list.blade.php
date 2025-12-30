@@ -30,12 +30,15 @@
         </div>
     </x-layouts.container>
 
-    <x-layouts.container>
+    <x-layouts.container class="flex justify-center pb-12">
         @if($this->casinos->count() < $this->totalCasinos)
-            <div x-intersect.full="$wire.loadMore()" class="w-full flex justify-center items-center pb-12">
-                <x-icons.loader wire:loading wire:target="loadMore" class="w-4 h-4 animate-spin"/>
-                <span class="text-sm text-secondary-600 ms-2">Loading...</span>
-            </div>
+            <x-button-link tag="button" variant="secondary-outline" wire:click="loadMore" wire:loading.attr="disabled" class="cursor-pointer">
+                <span wire:loading.remove wire:target="loadMore">Load more</span>
+                <span wire:loading.flex wire:target="loadMore" class="items-center gap-1.5">
+                    <x-icons.loader class="w-4 h-4 animate-spin"/>
+                    Loading...
+                </span>
+            </x-button-link>
         @endif
     </x-layouts.container>
 
