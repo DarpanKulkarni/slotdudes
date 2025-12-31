@@ -29,7 +29,7 @@
                 </button>
                 <button wire:click="setSort('recent'); open = false"
                         class="w-full text-left px-4 py-2.5 text-sm hover:bg-gray-50 {{ $sort === 'recent' ? 'text-primary-600 font-bold bg-gray-50' : 'text-gray-600' }}">
-                    Most Recent
+                    Last added
                 </button>
                 <button wire:click="setSort('alphabetical'); open = false"
                         class="w-full text-left px-4 py-2.5 text-sm hover:bg-gray-50 {{ $sort === 'alphabetical' ? 'text-primary-600 font-bold bg-gray-50' : 'text-gray-600' }}">
