@@ -9,7 +9,7 @@
             >
                 <span class="font-bold text-gray-800 flex items-center gap-1">
                     @switch($sort)
-                        @case('recent') Most Recent @break
+                        @case('recent') Last added @break
                         @case('alphabetical') Alphabetical @break
                         @default Featured
                     @endswitch
