@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class CasinoSearch extends Component
 {
-    public string $search = 'casino';
+    public string $search = '';
 
     public function render(): View
     {
