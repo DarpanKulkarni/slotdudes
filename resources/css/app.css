@@ -37,13 +37,6 @@
 }
 
 @layer utilities {
-    /*.cd-box-shadow {
-        box-shadow: 1px 0 0 0 theme('colors.secondary.300'),
-        0 1px 0 0 theme('colors.secondary.300'),
-        1px 1px 0 0 theme('colors.secondary.300'),
-        1px 0 0 0 theme('colors.secondary.300') inset,
-        0 1px 0 0 theme('colors.secondary.300') inset;
-    }*/
     .cd-casino-grid {
         --gap: 2px;
         --line-offset: calc(var(--gap) / 2);
