@@ -22,7 +22,7 @@
                 <img class="w-52 md:w-60" src="{{ app(\App\Settings\SiteSettings::class)->getSiteLogoUrl() }}" alt="CasinoDudes logo">
             </a>
 
-            <div class="px-2 py-1 bg-amber-400 text-primary-600 w-64 md:w-72 transform -rotate-3">
+            <div class="px-2 py-1 bg-amber-400 text-primary-600 w-72 transform -rotate-3">
                 <h2 class="uppercase font-bold text-xl text-center leading-[1.2]">Your go-to place for casinos and slots</h2>
             </div>
         </x-layouts.container>
