@@ -62,12 +62,18 @@
                     @endforeach
                 </div>
             @else
-                <div class="text-center py-12">
-                    @if($search == '')
-                        Start typing to search casinos.
-                    @else
-                        No results found for <span class="font-medium italic text-primary-600">'{{ $search }}'</span>.
-                    @endif
+                <div class="flex items-center justify-center text-center py-12">
+                    <div wire:target="search" wire:loading.flex class="flex items-center gap-2">
+                        <x-icons.loader class="w-6 h-6 animate-spin"/>Searching...
+                    </div>
+
+                    <div wire:target="search" wire:loading.remove>
+                        @if($search == '')
+                            Start typing to search casinos.
+                        @else
+                            No results found for <span class="font-medium italic text-primary-600">'{{ $search }}'</span>.
+                        @endif
+                    </div>
                 </div>
             @endif
         </x-layouts.container>
