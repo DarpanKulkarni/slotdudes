@@ -5,7 +5,7 @@
 >
     <div class="bg-primary-600 flex items-center h-20">
         <button
-            @click="searchOpen = !searchOpen"
+            @click="searchOpen = !searchOpen; $wire.set('search', '')"
             class="text-white z-50 p-1 rounded-md hover:bg-white/10 transition-colors duration-300 cursor-pointer absolute left-4"
         >
             <x-icons.menu-close class="w-12 h-12 p-2"/>
