@@ -6,8 +6,8 @@ return new class extends SettingsMigration
 
     public function up(): void
     {
-        $this->migrator->add('site.siteTitle', config('app.name'));
-        $this->migrator->add('site.siteDescription', 'Online Casinon Med Svensk Spellicens');
+        $this->migrator->add('site.siteTitle', 'SlotDudes.com');
+        $this->migrator->add('site.siteDescription', 'Your go-to place for casinos and slots');
         $this->migrator->add('site.casinosPerPage', 20);
         $this->migrator->add('site.postsPerPage', 6);
         $this->migrator->add('site.metaImage', null);
