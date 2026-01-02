@@ -12,7 +12,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ftp.flyttbil.se
-          server-dir: casinodudes.se/
+          server-dir: slotdudes.com/
           username: darpan@flyttbil.se
           password: ${{ secrets.FTP_PASSWORD }}
           exclude: |
