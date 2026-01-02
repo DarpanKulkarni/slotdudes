@@ -13,6 +13,7 @@ class SiteSettings extends Settings
     public ?string $siteLogo;
     public ?string $siteFavicon;
     public string $footerText;
+    public string $copyrightText;
     public ?string $footerScripts;
 
     public static function group(): string

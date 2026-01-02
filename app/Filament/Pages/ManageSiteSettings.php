@@ -103,6 +103,17 @@ class ManageSiteSettings extends SettingsPage
                             ->rules(['required'])
                             ->markAsRequired()
                             ->toolbarButtons([
+                                ['bold', 'italic', 'underline', 'strike', 'link'],
+                                ['h2', 'h3'],
+                                ['blockquote', 'codeBlock', 'bulletList', 'orderedList'],
+                                ['attachFiles', 'customBlocks'],
+                                ['undo', 'redo'],
+                            ]),
+
+                        RichEditor::make('copyrightText')
+                            ->rules(['required'])
+                            ->markAsRequired()
+                            ->toolbarButtons([
                                 ['bold', 'italic', 'underline', 'link'],
                             ])
                             ->default(function($get) {
