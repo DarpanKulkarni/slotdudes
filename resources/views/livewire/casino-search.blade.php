@@ -1,18 +1,20 @@
 <div
     x-show="searchOpen"
+    x-effect="if(searchOpen) $nextTick(() => $refs.searchInput.focus())"
     style="display: none"
     class="fixed top-0 inset-x-0"
 >
     <x-layouts.container class="max-w-full p-0! border-b border-b-secondary-200">
         <div class="relative flex items-center">
             <button
-                @click="searchOpen = !searchOpen; $wire.set('search', '')"
+                @click="searchOpen = !searchOpen; $wire.set('search', ''); $refs.searchInput.blur()"
                 class="absolute top-0 left-0 flex items-center justify-center w-16 h-16 z-50 cursor-pointer"
             >
                 <x-icons.menu-close class="w-8 h-8 stroke-primary-600"/>
             </button>
 
             <input
+                x-ref="searchInput"
                 wire:model.live.debounce-300ms="search"
                 type="text"
                 class="relative block w-full h-16 px-16 lg:px-18 text-secondary-950 bg-white outline-none z-40"
