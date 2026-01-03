@@ -15,7 +15,7 @@
             <input
                 wire:model.live.debounce-300ms="search"
                 type="text"
-                class="relative block w-full h-16 px-18 text-secondary-950 bg-white outline-none z-40"
+                class="relative block w-full h-16 px-16 lg:px-18 text-secondary-950 bg-white outline-none z-40"
                 placeholder="Search casinos..."
                 required
             />
