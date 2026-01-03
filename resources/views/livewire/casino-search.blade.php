@@ -3,30 +3,28 @@
     style="display: none"
     class="fixed top-0 inset-x-0"
 >
-    <div class="bg-primary-600 flex items-center h-20">
-        <x-layouts.container class="max-w-full">
-            <div class="relative flex items-center">
-                <button
-                    @click="searchOpen = !searchOpen; $wire.set('search', '')"
-                    class="absolute top-0 left-0 flex items-center justify-center w-13.5 h-13.5 z-50 cursor-pointer"
-                >
-                    <x-icons.menu-close class="w-6 h-6 stroke-secondary-500"/>
-                </button>
+    <x-layouts.container class="max-w-full p-0! border-b border-b-secondary-200">
+        <div class="relative flex items-center">
+            <button
+                @click="searchOpen = !searchOpen; $wire.set('search', '')"
+                class="absolute top-0 left-0 flex items-center justify-center w-16 h-16 z-50 cursor-pointer"
+            >
+                <x-icons.menu-close class="w-8 h-8 stroke-primary-600"/>
+            </button>
 
-                <input
-                    wire:model.live.debounce-300ms="search"
-                    type="text"
-                    class="relative block w-full px-13 h-13.5 rounded text-secondary-950 border border-secondary-300 bg-secondary-50 focus:ring-primary-600 focus:border-primary-700 outline-none transition-colors z-40"
-                    placeholder="Search casinos..."
-                    required
-                />
+            <input
+                wire:model.live.debounce-300ms="search"
+                type="text"
+                class="relative block w-full h-16 px-18 text-secondary-950 bg-white outline-none z-40"
+                placeholder="Search casinos..."
+                required
+            />
 
-                <div class="absolute top-0 right-0 flex items-center justify-center w-13.5 h-13.5 z-50">
-                    <x-icons.search class="w-6 h-6 stroke-secondary-500"/>
-                </div>
+            <div class="absolute top-0 right-0 flex items-center justify-center w-16 h-16 z-50">
+                <x-icons.search class="w-8 h-8 stroke-primary-600"/>
             </div>
-        </x-layouts.container>
-    </div>
+        </div>
+    </x-layouts.container>
 
     <div class="w-full h-dvh bg-white overflow-y-auto pb-24">
         <x-layouts.container>
@@ -72,11 +70,8 @@
                     </div>
 
                     <div wire:target="search" wire:loading.remove>
-                        @if($search == '')
-                            Start typing to search casinos.
-                        @else
-                            No results found for <span
-                                class="font-medium italic text-primary-600">'{{ $search }}'</span>.
+                        @if($search !== '')
+                            No results found for <span class="font-medium italic text-primary-600">'{{ $search }}'</span>.
                         @endif
                     </div>
                 </div>

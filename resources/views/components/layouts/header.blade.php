@@ -1,7 +1,7 @@
 <div
     x-data="{
         menuOpen: false,
-        searchOpen: false,
+        searchOpen: true,
         isScrolled: false,
         headerHeight: 0,
         get overlayOpen() {
