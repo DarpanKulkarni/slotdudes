@@ -44,6 +44,14 @@ class EditPage extends EditRecord
                 ->update(['is_blog_page' => false]);
         }
 
+        if ($data['is_slot_reviews_page'] ?? false) {
+            $data['content'] = $data['content'] ?? '';
+
+            Page::where('id', '!=', $this->record->id)
+                ->where('is_slot_reviews_page', true)
+                ->update(['is_slot_reviews_page' => false]);
+        }
+
         return $data;
     }
 }

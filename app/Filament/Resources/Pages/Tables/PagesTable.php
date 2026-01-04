@@ -24,6 +24,8 @@ class PagesTable
                             return ' (Front Page)';
                         } else if ($record->is_blog_page) {
                             return ' (Blog Page)';
+                        } else if ($record->is_slot_reviews_page) {
+                            return ' (Slot Reviews Page)';
                         } else {
                             return '';
                         }

@@ -60,6 +60,7 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([])
             ->navigationGroups([
                 'Blog',
+                'Reviews',
                 'Settings',
             ])
             ->middleware([

@@ -33,6 +33,15 @@ class PagesTableSeeder extends Seeder
             ],
             [
                 'id' => 3,
+                'title' => 'Slot Reviews',
+                'slug' => 'slot-reviews',
+                'content' => '',
+                'status' => 'published',
+                'is_slot_reviews_page' => true,
+                'show_in_menu' => true,
+            ],
+            [
+                'id' => 4,
                 'title' => 'Terms & Conditions',
                 'slug' => 'affiliate',
                 'content' => '<p>Terms and conditions page content goes here.</p>',

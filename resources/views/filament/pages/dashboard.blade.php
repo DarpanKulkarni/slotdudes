@@ -11,8 +11,8 @@
         </div>
 
         <div>
-            <h3 class="text-xl text-gray-600 font-medium uppercase mb-2">Categories</h3>
-            @livewire(\App\Filament\Widgets\CategoriesOverviewWidget::class)
+            <h3 class="text-xl text-gray-600 font-medium uppercase mb-2">Slot Reviews</h3>
+            @livewire(\App\Filament\Widgets\SlotReviewsOverviewWidget::class)
         </div>
     </div>
 </x-filament-panels::page>

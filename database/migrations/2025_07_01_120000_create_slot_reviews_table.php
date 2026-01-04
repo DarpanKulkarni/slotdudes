@@ -11,17 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('slot_reviews', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->unique();
+            $table->string('featured_image')->nullable();
             $table->text('content');
             $table->enum('status', ['draft', 'published'])->default('draft');
-            $table->boolean('is_home_page')->default(false);
-            $table->boolean('is_blog_page')->default(false);
-            $table->boolean('is_slot_reviews_page')->default(false);
-            $table->boolean('show_in_menu')->default(false);
-            $table->integer('order')->default(999);
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('slot_reviews');
     }
 };

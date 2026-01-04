@@ -27,6 +27,12 @@ class CreatePage extends CreateRecord
             Page::where('is_blog_page', true)->update(['is_blog_page' => false]);
         }
 
+        if ($data['is_slot_reviews_page'] ?? false) {
+            $data['content'] = '';
+
+            Page::where('is_slot_reviews_page', true)->update(['is_slot_reviews_page' => false]);
+        }
+
         return $data;
     }
 }

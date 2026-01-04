@@ -50,13 +50,9 @@ class PageForm
                             ),
 
                         RichEditor::make('content')
-                            ->rules(fn(Get $get) => $get('is_blog_page') || $get('is_home_page') ? [] : ['required'])
-                            ->markAsRequired(fn(Get $get) => !$get('is_blog_page') || !$get('is_home_page'))
-                            ->hidden(fn(Get $get) => $get('is_blog_page') || $get('is_home_page'))
-                            ->customBlocks([
-                                ButtonBlock::class,
-                                ImageBlock::class,
-                            ])
+                            ->rules(fn(Get $get) => $get('is_blog_page') || $get('is_home_page') || $get('is_slot_reviews_page') ? [] : ['required'])
+                            ->markAsRequired(fn(Get $get) => !$get('is_blog_page') || !$get('is_home_page') || !$get('is_slot_reviews_page'))
+                            ->hidden(fn(Get $get) => $get('is_blog_page') || $get('is_home_page') || $get('is_slot_reviews_page'))
                             ->toolbarButtons([
                                 ['bold', 'italic', 'underline', 'strike', 'link'],
                                 ['alignStart', 'alignCenter', 'alignEnd'],
@@ -85,12 +81,17 @@ class PageForm
 
                         Toggle::make('is_home_page')
                             ->default(false)
-                            ->disabled(fn(Get $get) => $get('is_blog_page'))
+                            ->disabled(fn(Get $get) => $get('is_blog_page') || $get('is_slot_reviews_page'))
                             ->lazy(),
 
                         Toggle::make('is_blog_page')
                             ->default(false)
-                            ->disabled(fn(Get $get) => $get('is_home_page'))
+                            ->disabled(fn(Get $get) => $get('is_home_page') || $get('is_slot_reviews_page'))
+                            ->lazy(),
+
+                        Toggle::make('is_slot_reviews_page')
+                            ->default(false)
+                            ->disabled(fn(Get $get) => $get('is_home_page') || $get('is_blog_page'))
                             ->lazy(),
 
                         Toggle::make('show_in_menu')

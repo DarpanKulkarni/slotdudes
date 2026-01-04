@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategoriesTableSeeder::class,
             PostsTableSeeder::class,
+            SlotCategoriesTableSeeder::class,
+            SlotReviewsTableSeeder::class,
             PagesTableSeeder::class,
             CasinosTableSeeder::class,
         ]);
