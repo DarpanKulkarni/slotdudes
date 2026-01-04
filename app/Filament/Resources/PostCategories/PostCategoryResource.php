@@ -76,7 +76,7 @@ class PostCategoryResource extends Resource
             ])
             ->defaultSort('published_at', 'desc')
             ->recordActions([
-                EditAction::make()->iconButton(),
+                EditAction::make()->iconButton()->modalWidth('md'),
                 DeleteAction::make()->iconButton(),
             ])
             ->toolbarActions([

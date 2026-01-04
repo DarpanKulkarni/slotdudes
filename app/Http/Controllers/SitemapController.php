@@ -6,6 +6,9 @@ use App\Models\Casino;
 use App\Models\Category;
 use App\Models\Page;
 use App\Models\Post;
+use App\Models\PostCategory;
+use App\Models\ReviewCategory;
+use App\Models\SlotReview;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 
@@ -17,7 +20,7 @@ class SitemapController extends Controller
 
         $this->addPosts($sitemap);
         $this->addPages($sitemap);
-        $this->addCategories($sitemap);
+        $this->addPostCategories($sitemap);
         $this->addCasinos($sitemap);
         $sitemap->writeToFile(public_path('sitemap.xml'));
 
@@ -66,15 +69,54 @@ class SitemapController extends Controller
             });
     }
 
-    private function addCategories($sitemap)
+    private function addPostCategories($sitemap)
     {
-        Category::has('posts')
+        PostCategory::has('posts')
             ->withCount(['posts' => function ($query) {
                 $query->where('status', 'published');
             }])
             ->chunk(100, function ($categories) use ($sitemap) {
                 foreach ($categories as $category) {
                     $sitemap->add(Url::create("/posts/categories/{$category->slug}")
+                        ->setLastModificationDate($category->updated_at)
+                        ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                        ->setPriority(0.7));
+                }
+            });
+    }
+
+    private function addSlotReviews($sitemap)
+    {
+        SlotReview::where('status', 'published')
+            ->whereNotNull('published_at')
+            ->with('media')
+            ->chunk(100, function ($posts) use ($sitemap) {
+                foreach ($posts as $post) {
+                    $url = Url::create("/slot-reviews/{$post->slug}")
+                        ->setLastModificationDate($post->updated_at)
+                        ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                        ->setPriority(0.8);
+
+                    $featuredImage = $post->getFirstMediaUrl('featured-images');
+
+                    if ($featuredImage) {
+                        $url->addImage($featuredImage, $post->title);
+                    }
+
+                    $sitemap->add($url);
+                }
+            });
+    }
+
+    private function addReviewCategories($sitemap)
+    {
+        ReviewCategory::has('posts')
+            ->withCount(['posts' => function ($query) {
+                $query->where('status', 'published');
+            }])
+            ->chunk(100, function ($categories) use ($sitemap) {
+                foreach ($categories as $category) {
+                    $sitemap->add(Url::create("/slot-reviews/categories/{$category->slug}")
                         ->setLastModificationDate($category->updated_at)
                         ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
                         ->setPriority(0.7));
