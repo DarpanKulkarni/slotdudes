@@ -3,9 +3,12 @@
 use App\Http\Controllers\SitemapController;
 use App\Livewire\CasinoDetail;
 use App\Livewire\CategoryPostList;
+use App\Livewire\CategoryReviewList;
 use App\Livewire\PageDetail;
 use App\Livewire\PostDetail;
 use App\Livewire\PostList;
+use App\Livewire\SlotReviewDetail;
+use App\Livewire\SlotReviewList;
 use App\Models\Page;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +26,18 @@ if (Schema::hasTable('pages')) {
                 Route::get('/', PostList::class)->name('posts.list');
                 Route::get('/categories/{slug}', CategoryPostList::class)->name('posts.categories.list');
                 Route::get('/{slug}', PostDetail::class)->name('posts.detail');
+            });
+    }
+
+    $slotReviewPage = Page::where('is_slot_reviews_page', true)->first();
+
+    if ($slotReviewPage) {
+        Route::middleware('web')
+            ->prefix($slotReviewPage->slug)
+            ->group(function () {
+                Route::get('/', SlotReviewList::class)->name('slot-reviews.list');
+                Route::get('/review-categories/{slug}', CategoryReviewList::class)->name('slot-reviews.categories.list');
+                Route::get('/{slug}', SlotReviewDetail::class)->name('slot-reviews.detail');
             });
     }
 }

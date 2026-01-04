@@ -17,9 +17,10 @@ class CategoryReviewList extends Component
 {
     use WithPagination;
 
-    public Category $category;
+    public ReviewCategory $category;
 
-    public function mount($slug): void{
+    public function mount($slug): void
+    {
         $this->category = ReviewCategory::whereSlug($slug)->firstOrFail();
     }
 

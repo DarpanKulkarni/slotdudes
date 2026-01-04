@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\PostCategory;
 use App\Settings\SiteSettings;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
@@ -17,10 +18,10 @@ class CategoryPostList extends Component
 {
     use WithPagination;
 
-    public Category $category;
+    public PostCategory $category;
 
     public function mount($slug): void{
-        $this->category = Category::whereSlug($slug)->firstOrFail();
+        $this->category = PostCategory::whereSlug($slug)->firstOrFail();
     }
 
     #[Computed]
