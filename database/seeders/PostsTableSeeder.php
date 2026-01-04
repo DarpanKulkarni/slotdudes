@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
+use App\Models\PostCategory;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -23,7 +23,7 @@ class PostsTableSeeder extends Seeder
 
         $postsData = json_decode(File::get($path), true);
 
-        $categories = Category::all();
+        $categories = PostCategory::all();
 
         foreach ($postsData as $postData) {
             $post = new Post();

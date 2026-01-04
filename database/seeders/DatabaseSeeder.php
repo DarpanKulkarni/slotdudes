@@ -21,9 +21,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
-            CategoriesTableSeeder::class,
+            PostCategoriesTableSeeder::class,
             PostsTableSeeder::class,
-            SlotCategoriesTableSeeder::class,
+            ReviewCategoriesTableSeeder::class,
             SlotReviewsTableSeeder::class,
             PagesTableSeeder::class,
             CasinosTableSeeder::class,

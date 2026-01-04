@@ -4,7 +4,7 @@ namespace App\Filament\Resources\Posts\Tables;
 
 use App\Filament\Filters\DateFilter;
 use App\Filament\Filters\StatusSelectFilter;
-use App\Models\Category;
+use App\Models\PostCategory;
 use App\Models\Post;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
@@ -70,7 +70,7 @@ class PostsTable
                     ->multiple()
                     ->searchable()
                     ->options(function () {
-                        $categories = Category::pluck('name', 'id')->toArray();
+                        $categories = PostCategory::pluck('name', 'id')->toArray();
                         return ['no_category' => 'No Category'] + $categories;
                     })
                     ->query(function (Builder $query, array $data): Builder {
@@ -109,7 +109,7 @@ class PostsTable
                         $indicators = [];
 
                         if (!empty($categoryIds)) {
-                            $categories = Category::whereIn('id', $categoryIds)->pluck('name');
+                            $categories = PostCategory::whereIn('id', $categoryIds)->pluck('name');
                             $indicators[] = 'Categories: ' . $categories->join(', ');
                         }
 

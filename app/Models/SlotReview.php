@@ -61,6 +61,6 @@ class SlotReview extends Model implements HasMedia
 
     public function categories(): BelongsToMany
     {
-        return $this->belongsToMany(SlotCategory::class);
+        return $this->belongsToMany(ReviewCategory::class);
     }
 }

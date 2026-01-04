@@ -35,10 +35,6 @@ class SlotReviewForm
                         RichEditor::make('content')
                             ->rules(['required'])
                             ->markAsRequired()
-                            ->customBlocks([
-                                ButtonBlock::class,
-                                ImageBlock::class,
-                            ])
                             ->toolbarButtons([
                                 ['bold', 'italic', 'underline', 'strike', 'link'],
                                 ['h2', 'h3'],

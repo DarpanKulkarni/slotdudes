@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\SlotCategory;
+use App\Models\ReviewCategory;
 use App\Models\SlotReview;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -23,7 +23,7 @@ class SlotReviewsTableSeeder extends Seeder
 
         $slotReviewsData = json_decode(File::get($path), true);
 
-        $categories = SlotCategory::all();
+        $categories = ReviewCategory::all();
 
         foreach ($slotReviewsData as $slotReviewData) {
             $slotReview = new SlotReview();

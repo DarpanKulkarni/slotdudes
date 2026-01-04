@@ -4,7 +4,7 @@ namespace App\Filament\Resources\SlotReviews\Tables;
 
 use App\Filament\Filters\DateFilter;
 use App\Filament\Filters\StatusSelectFilter;
-use App\Models\SlotCategory;
+use App\Models\ReviewCategory;
 use App\Models\SlotReview;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
@@ -70,7 +70,7 @@ class SlotReviewsTable
                     ->multiple()
                     ->searchable()
                     ->options(function () {
-                        $categories = SlotCategory::pluck('name', 'id')->toArray();
+                        $categories = ReviewCategory::pluck('name', 'id')->toArray();
                         return ['no_category' => 'No Category'] + $categories;
                     })
                     ->query(function (Builder $query, array $data): Builder {
@@ -109,7 +109,7 @@ class SlotReviewsTable
                         $indicators = [];
 
                         if (!empty($categoryIds)) {
-                            $categories = SlotCategory::whereIn('id', $categoryIds)->pluck('name');
+                            $categories = ReviewCategory::whereIn('id', $categoryIds)->pluck('name');
                             $indicators[] = 'Categories: ' . $categories->join(', ');
                         }
 

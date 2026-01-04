@@ -3,24 +3,24 @@
 namespace App\Livewire;
 
 use App\Models\Category;
+use App\Models\ReviewCategory;
 use App\Models\SlotReview;
 use App\Settings\SiteSettings;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class CategorySlotReviewList extends Component
+class CategoryReviewList extends Component
 {
     use WithPagination;
 
     public Category $category;
 
     public function mount($slug): void{
-        $this->category = Category::whereSlug($slug)->firstOrFail();
+        $this->category = ReviewCategory::whereSlug($slug)->firstOrFail();
     }
 
     #[Computed]
@@ -43,7 +43,7 @@ class CategorySlotReviewList extends Component
         $metaTitle = "{$this->category->name} – Latest Slot Reviews";
         $metaDescription = "Explore insightful articles and the latest slot reviews in the {$this->category->name} category.";
 
-        return view('livewire.category-slot-review-list')
+        return view('livewire.category-review-list')
             ->layoutData([
                 'metaTitle' => $metaTitle,
                 'metaDescription' => $metaDescription,
