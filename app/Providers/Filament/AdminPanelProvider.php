@@ -47,7 +47,6 @@ class AdminPanelProvider extends PanelProvider
                     950 => '8, 27, 44',
                 ],
             ])
-            ->brandLogo(asset('images/cd-logo.webp'))
             ->favicon(asset('images/favicon/favicon.ico'))
             ->sidebarWidth('220px')
             ->sidebarCollapsibleOnDesktop()
