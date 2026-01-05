@@ -36,7 +36,7 @@
     </div>
 
     <div class="py-8 px-8 md:px-12">
-        <nav class="flex flex-col items-center justify-center space-y-6 my-16">
+        <nav class="flex flex-col items-center justify-center space-y-6">
             @php
                 use App\Models\Page;
 
