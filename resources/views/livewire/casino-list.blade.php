@@ -71,7 +71,7 @@
 
         <div wire:loading.flex wire:target="setSort" class="absolute inset-0 z-10 justify-center pt-20 bg-white/70 backdrop-blur-[1px] transition-all duration-300">
             <div class="flex flex-col items-center gap-2 sticky top-40">
-                <x-icons.loader class="w-10 h-10 text-primary-600 animate-spin" />
+                <x-icons.loader class="w-10 h-10 text-primary-600 animate-spin"/>
                 <span class="text-primary-800 font-medium text-sm tracking-wide">Please wait...</span>
             </div>
         </div>
@@ -87,6 +87,10 @@
                 </span>
             </x-button-link>
         @endif
+    </x-layouts.container>
+
+    <x-layouts.container class="prose prose-lg px-6 lg:px-4 pt-8">
+        {!! app(\App\Settings\SiteSettings::class)->footerText !!}
     </x-layouts.container>
 
     <x-button-link

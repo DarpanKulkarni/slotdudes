@@ -1,9 +1,3 @@
-<section class="bg-primary-600 py-12 border-b border-white/10">
-    <x-layouts.container class="prose prose-invert prose-lg px-6 lg:px-4">
-        {!! app(\App\Settings\SiteSettings::class)->footerText !!}
-    </x-layouts.container>
-</section>
-
 <footer class="bg-primary-600 text-white/70 text-sm text-center py-6 space-y-4">
     <div class="flex items-center justify-center gap-6">
         <a href="https://instagram.com/slotdudes_com" target="_blank" rel="nofollow">
