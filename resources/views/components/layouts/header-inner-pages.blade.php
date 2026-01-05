@@ -1,7 +1,11 @@
 <div
     x-data="{
         menuOpen: false,
+        get overlayOpen() {
+            return this.searchOpen || this.menuOpen
+        }
     }"
+    x-effect="document.body.classList.toggle('overflow-hidden', overlayOpen)"
     class="sticky top-0 inset-x-0 z-40"
 >
     <header class=" flex justify-between items-center h-20 px-4 bg-primary-600 transition-all duration-300 shadow-lg shadow-gray-800/40">
