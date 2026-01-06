@@ -29,6 +29,7 @@
     {{ $slot }}
 </main>
 <x-layouts.footer/>
+<x-cookie-consent />
 @vite(['resources/js/app.js'])
 @stack('scripts')
 {!! app(\App\Settings\SiteSettings::class)->footerScripts !!}
