@@ -30,6 +30,13 @@
                 show: false,
                 init() {
                     this.show = !localStorage.getItem('cookie_consent');
+                    Alpine.effect(() => {
+                        if (this.show) {
+                            document.body.classList.add('overflow-hidden');
+                        } else {
+                            document.body.classList.remove('overflow-hidden');
+                        }
+                    });
                 },
                 accept() {
                     localStorage.setItem('cookie_consent', 'accepted');
