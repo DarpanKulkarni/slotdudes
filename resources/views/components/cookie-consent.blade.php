@@ -18,7 +18,7 @@
             </div>
 
             <div class="grid grid-cols-2 gap-4 mt-6">
-                <x-button-link @click="accept" tag="button">Accept</x-button-link>
+                <x-button-link @click="accept" tag="button" variant="green">Accept</x-button-link>
                 <x-button-link @click="reject" tag="button" variant="secondary">Deny</x-button-link>
             </div>
         </div>
