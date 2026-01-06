@@ -1,5 +1,5 @@
 @once
-    <div x-data="cookieConsent" x-show="show" x-cloak class="fixed inset-0 z-50 flex items-center justify-center">
+    <div x-data="cookieConsent" x-show="show" x-cloak class="fixed inset-0 z-50 flex items-center justify-center bg-black/10">
         <div class="w-full max-w-lg  p-6 mx-4 bg-white border border-gray-200 rounded-lg shadow-lg">
             <h5 class="text-2xl font-semibold mb-4">Cookie Consent</h5>
             <div class="overflow-y-auto h-50">
