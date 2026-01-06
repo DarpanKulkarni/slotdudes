@@ -1,6 +1,6 @@
 @once
-    <div x-data="cookieConsent" x-show="show" x-cloak class="fixed inset-0 z-50 flex items-center justify-center bg-black/10">
-        <div class="w-full max-w-lg  p-6 mx-4 bg-white border border-gray-200 rounded-lg shadow-lg">
+    <div x-data="cookieConsent" x-show="show" x-cloak class="fixed inset-0 z-50 flex items-center justify-center bg-black/20">
+        <div class="w-full max-w-lg  p-6 mx-8 bg-white border border-gray-200 rounded-lg shadow-lg">
             <h5 class="text-2xl font-semibold mb-4">Cookie Consent</h5>
             <div class="overflow-y-auto h-50">
                 <p class="mt-2 text-sm">This website uses cookies to ensure you get the best experience. Here are the details of the cookies we use:</p>
