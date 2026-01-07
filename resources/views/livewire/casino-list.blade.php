@@ -13,8 +13,10 @@
                         @case('alphabetical') Alphabetical @break
                         @default Featured
                     @endswitch
-                        <x-icons.chevron-right class="w-4 h-4 stroke-2 rotate-90"/>
+                    <span class="inline-block transition-transform duration-300 rotate-90" x-bind:class="{ 'rotate-90': !open, '-rotate-90': open }">
+                        <x-icons.chevron-right class="w-4 h-4 stroke-2" />
                     </span>
+                </span>
             </x-button-link>
 
             <div
@@ -53,7 +55,7 @@
 
                     <div
                         class="absolute flex shrink flex-col items-center justify-center inset-0 p-4 gap-2 transition-opacity duration-300 opacity-0 pointer-events-none lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto"
-                        :class="open ? 'opacity-100! pointer-events-auto!' : ''"
+                        x-bind:class="{ 'opacity-100! pointer-events-auto!': open }"
                     >
                         <x-button-link href="{{ $casino->link }}" variant="green" class="w-full px-2!" target="_blank">
                             Visit casino
