@@ -113,15 +113,15 @@
         }
         .btn table td {
             background-color: #ffffff;
-            border-radius: 5px;
+            border-radius: 9999px;
             text-align: center;
         }
         .btn a {
             background-color: #ffffff;
-            border: solid 1px #3498db;
-            border-radius: 5px;
+            border: solid 1px #123f66;
+            border-radius: 9999px;
             box-sizing: border-box;
-            color: #3498db;
+            color: #123f66;
             cursor: pointer;
             display: inline-block;
             font-size: 14px;
@@ -132,11 +132,11 @@
             text-transform: capitalize;
         }
         .btn-primary table td {
-            background-color: #3498db;
+            background-color: #123f66;
         }
         .btn-primary a {
-            background-color: #3498db;
-            border-color: #3498db;
+            background-color: #123f66;
+            border-color: #123f66;
             color: #ffffff;
         }
         .align-center {
@@ -247,11 +247,11 @@
                 line-height: inherit;
             }
             .btn-primary table td:hover {
-                background-color: #34495e !important;
+                background-color: #154b79 !important;
             }
             .btn-primary a:hover {
-                background-color: #34495e !important;
-                border-color: #34495e !important;
+                background-color: #154b79 !important;
+                border-color: #154b79 !important;
             }
         }
     </style>
@@ -264,7 +264,7 @@
             <td class="container">
                 <div class="content">
                     <div style="text-align: center; padding-bottom: 20px;">
-                        <h1 style="font-weight: bold; margin: 0;">{{ config('app.name') }}</h1>
+                        <h1 style="font-weight: bold; margin: 0; color: #123f66;">{{ config('app.name') }}</h1>
                     </div>
 
                     <table role="presentation" class="main">
