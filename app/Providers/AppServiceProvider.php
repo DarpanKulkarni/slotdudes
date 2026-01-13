@@ -5,10 +5,12 @@ namespace App\Providers;
 use App\Models\Casino;
 use App\Models\Page;
 use App\Models\Post;
+use App\Models\SlotReview;
 use App\Models\User;
 use App\Observers\CasinoObserver;
 use App\Observers\PageObserver;
 use App\Observers\PostObserver;
+use App\Observers\SlotReviewObserver;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\CreateRecord;
 use Filament\Support\Facades\FilamentColor;
@@ -34,6 +36,7 @@ class AppServiceProvider extends ServiceProvider
         Page::observe(PageObserver::class);
         Post::observe(PostObserver::class);
         Casino::observe(CasinoObserver::class);
+        SlotReview::observe(SlotReviewObserver::class);
 
         // Disable create and create another actions
         CreateRecord::disableCreateAnother();

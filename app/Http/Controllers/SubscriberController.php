@@ -20,4 +20,17 @@ class SubscriberController extends Controller
 
         return view('subscriber.verified');
     }
+
+    public function unsubscribe(Request $request, Subscriber $subscriber)
+    {
+        if (! $request->hasValidSignature()) {
+            abort(403);
+        }
+
+        $subscriber->update([
+            'active' => false,
+        ]);
+
+        return view('subscriber.unsubscribed');
+    }
 }

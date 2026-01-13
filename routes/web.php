@@ -21,6 +21,10 @@ Route::get('/subscriber/verify/{subscriber}', [SubscriberController::class, 'ver
     ->name('subscriber.verify')
     ->middleware('signed');
 
+Route::get('/subscriber/unsubscribe/{subscriber}', [SubscriberController::class, 'unsubscribe'])
+    ->name('subscriber.unsubscribe')
+    ->middleware('signed');
+
 if (Schema::hasTable('pages')) {
     $blogPage = Page::where('is_blog_page', true)->first();
 

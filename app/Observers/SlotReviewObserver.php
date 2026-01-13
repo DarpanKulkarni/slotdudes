@@ -3,28 +3,27 @@
 namespace App\Observers;
 
 use App\Http\Controllers\SitemapController;
-use App\Models\Post;
+use App\Models\SlotReview;
 use Illuminate\Support\Facades\Log;
 
-class PostObserver
+class SlotReviewObserver
 {
-    public function created(Post $post): void
+    public function created(SlotReview $slotReview): void
     {
-        if ($post->status === 'published') {
+        if ($slotReview->status === 'published') {
             $this->regenerateSitemap();
-            $this->sendNewsletter($post);
+            $this->sendNewsletter($slotReview);
         }
     }
 
-    public function updated(Post $post): void
+    public function updated(SlotReview $slotReview): void
     {
-        if ($post->status === 'published' || $post->getOriginal('status') === 'published') {
+        if ($slotReview->status === 'published' || $slotReview->getOriginal('status') === 'published') {
             $this->regenerateSitemap();
         }
 
-        // Only send if status CHANGED to published
-        if ($post->status === 'published' && $post->getOriginal('status') !== 'published') {
-            $this->sendNewsletter($post);
+        if ($slotReview->status === 'published' && $slotReview->getOriginal('status') !== 'published') {
+            $this->sendNewsletter($slotReview);
         }
     }
 
@@ -39,20 +38,18 @@ class PostObserver
         $controller->generate();
     }
 
-    private function sendNewsletter(Post $post): void
+    private function sendNewsletter(SlotReview $slotReview): void
     {
-        $command = 'php ' . base_path('artisan') . ' newsletter:send post ' . $post->id;
+        $command = 'php ' . base_path('artisan') . ' newsletter:send slot_review ' . $slotReview->id;
 
-        Log::info("Preparing to send newsletter for Post ID: {$post->id}");
+        Log::info("Preparing to send newsletter for SlotReview ID: {$slotReview->id}");
 
-        // In local environment, run synchronously to debug errors
         if (app()->environment('local')) {
             Log::info("Running command synchronously: $command");
             exec($command . ' 2>&1', $output, $returnVar);
             Log::info("Command Output: " . implode("\n", $output));
             Log::info("Return Code: " . $returnVar);
         } else {
-            // In production, run in background
             $command .= ' > /dev/null 2>&1 &';
             Log::info("Running command in background: $command");
             exec($command);
