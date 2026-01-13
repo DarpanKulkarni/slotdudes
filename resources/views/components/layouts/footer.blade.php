@@ -7,6 +7,10 @@
 @endif
 
 <footer class="bg-primary-600 text-white/70 text-sm text-center py-6 space-y-4">
+    <div class="mb-8">
+        <livewire:subscription-form />
+    </div>
+
     <div class="flex items-center justify-center gap-6">
         <a href="https://instagram.com/slotdudes_com" target="_blank" rel="nofollow">
             <img src="{{ asset('/images/cd-instagram-logo.webp') }}" alt="instagram logo" class="w-8">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\SubscriberController;
 use App\Livewire\CasinoDetail;
 use App\Livewire\CategoryPostList;
 use App\Livewire\CategoryReviewList;
@@ -15,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', PageDetail::class)->name('home');
 Route::get('/casinos/{slug}', CasinoDetail::class)->name('casino.detail');
 Route::get('/generate-sitemap', [SitemapController::class, 'generate'])->name('sitemap.generate');
+
+Route::get('/subscriber/verify/{subscriber}', [SubscriberController::class, 'verify'])
+    ->name('subscriber.verify')
+    ->middleware('signed');
 
 if (Schema::hasTable('pages')) {
     $blogPage = Page::where('is_blog_page', true)->first();
@@ -43,4 +48,3 @@ if (Schema::hasTable('pages')) {
 }
 
 Route::get('/{slug}', PageDetail::class)->name('page.detail');
-
