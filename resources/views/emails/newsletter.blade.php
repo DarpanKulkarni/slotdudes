@@ -177,6 +177,29 @@
             border-bottom: 1px solid #f6f6f6;
             margin: 20px 0;
         }
+        .featured-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .meta-info {
+            font-size: 12px;
+            color: #999999;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .post-content {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333333;
+        }
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
         @media only screen and (max-width: 620px) {
             table[class=body] h1 {
                 font-size: 28px !important;
@@ -275,16 +298,39 @@
                                         <td>
                                             <p>Hi there,</p>
                                             <p>We've just published new content that you might be interested in:</p>
-                                            <h2>{{ $title }}</h2>
-                                            <p>Click the button below to read more:</p>
+
+                                            <hr>
+
+                                            <!-- Meta Info -->
+                                            <div class="meta-info">
+                                                @if(isset($content->published_at))
+                                                    {{ $content->published_at->format('M d, Y') }}
+                                                @endif
+                                            </div>
+
+                                            <!-- Title -->
+                                            <h1 style="text-align: left; font-size: 24px; font-weight: bold; margin-bottom: 15px;">{{ $title }}</h1>
+
+                                            <!-- Featured Image -->
+                                            @if($content->hasMedia('featured-images'))
+                                                <img src="{{ $content->getFirstMediaUrl('featured-images', 'featured-image-full') }}" alt="{{ $title }}" class="featured-image">
+                                            @endif
+
+                                            <!-- Content -->
+                                            <div class="post-content">
+                                                {!! $content->content !!}
+                                            </div>
+
+                                            <br>
+
                                             <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                                                 <tbody>
                                                     <tr>
-                                                        <td align="left">
+                                                        <td align="center">
                                                             <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td> <a href="{{ $url }}" target="_blank">Read More</a> </td>
+                                                                        <td> <a href="{{ $url }}" target="_blank">View on Website</a> </td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
@@ -292,6 +338,9 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
+
+                                            <hr>
+
                                             <p>Best regards,<br>The {{ config('app.name') }} Team</p>
                                         </td>
                                     </tr>

@@ -22,6 +22,7 @@ class Post extends Model implements HasMedia
 
     protected $casts = [
         'featured' => 'boolean',
+        'published_at' => 'datetime',
     ];
 
     public function getSlugOptions(): SlugOptions

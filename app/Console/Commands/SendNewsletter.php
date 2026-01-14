@@ -8,6 +8,7 @@ use App\Models\Subscriber;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Str;
 
 class SendNewsletter extends Command
 {
@@ -51,6 +52,9 @@ class SendNewsletter extends Command
             return;
         }
 
+        // Convert relative image paths to absolute URLs
+        $content->content = $this->convertRelativePathsToAbsolute($content->content);
+
         $this->info("Sending newsletter for {$type}: {$content->title}");
 
         Subscriber::where('active', true)
@@ -86,5 +90,31 @@ class SendNewsletter extends Command
             });
 
         $this->info('Newsletter sent successfully.');
+    }
+
+    private function convertRelativePathsToAbsolute($content)
+    {
+        if (empty($content)) {
+            return $content;
+        }
+
+        $baseUrl = config('app.url');
+
+        // Remove trailing slash from base URL if present
+        $baseUrl = rtrim($baseUrl, '/');
+
+        // Replace src="/..." with src="https://yoursite.com/..."
+        // This regex looks for src=" followed by a / (but not // which would be protocol relative)
+        $pattern = '/src=["\']\/(?!\/)([^"\']+)["\']/';
+
+        return preg_replace_callback($pattern, function ($matches) use ($baseUrl) {
+            // $matches[0] is the full match (e.g. src="/images/foo.jpg")
+            // $matches[1] is the path (e.g. images/foo.jpg)
+
+            // Reconstruct the tag with the absolute URL
+            // We need to check which quote style was used
+            $quote = substr($matches[0], 4, 1);
+            return 'src=' . $quote . $baseUrl . '/' . $matches[1] . $quote;
+        }, $content);
     }
 }
