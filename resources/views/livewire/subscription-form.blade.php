@@ -7,7 +7,7 @@
     @else
         <div class="text-center mb-6">
             <h3 class="text-white text-xl font-bold mb-2">Join the SlotDudes Newsletter</h3>
-            <p class="text-lg text-white/70">Casino news & slot reviews – straight to your inbox</p>
+            <p class="text-lg text-white/70">Casino news & slot reviews – <br>straight to your inbox</p>
         </div>
 
         <form wire:submit.prevent="subscribe" class="flex items-start max-w-md mx-auto">
