@@ -14,12 +14,12 @@
 <aside
     x-show="menuOpen"
     x-transition:enter="transform transition ease-out duration-200"
-    x-transition:enter-start="-translate-x-full"
+    x-transition:enter-start="translate-x-full"
     x-transition:enter-end="translate-x-0"
     x-transition:leave="transform transition ease-in duration-200"
     x-transition:leave-start="translate-x-0"
-    x-transition:leave-end="-translate-x-full"
-    class="fixed top-0 left-0 h-full w-full md:w-115 bg-black/90 shadow-xl z-50 overflow-y-auto"
+    x-transition:leave-end="translate-x-full"
+    class="fixed top-0 right-0 h-full w-full md:w-115 bg-black/90 shadow-xl z-50 overflow-y-auto"
     style="display: none;"
 >
     <div class="flex items-center justify-between py-6 px-8 md:px-12 border-b border-white/10">
