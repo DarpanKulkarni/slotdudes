@@ -1,11 +1,16 @@
-<div class="w-full max-w-md mx-auto">
+<x-layouts.container>
     @if($isSubscribed)
         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
             <strong class="font-bold">Success!</strong>
             <span class="block sm:inline">Please check your email to confirm your subscription.</span>
         </div>
     @else
-        <form wire:submit.prevent="subscribe" class="flex items-start">
+        <div class="text-center mb-6">
+            <h3 class="text-white text-xl font-bold mb-2">Join the SlotDudes Newsletter</h3>
+            <p class="text-white/70">Casino news, slot reviews & real gameplay insights – straight to your inbox</p>
+        </div>
+
+        <form wire:submit.prevent="subscribe" class="flex items-start max-w-md mx-auto">
             <div class="w-full relative">
                 <input
                     wire:model="email"
@@ -20,8 +25,8 @@
             <x-button-link
                 tag="button"
                 type="submit"
-                variant="secondary"
-                class="w-auto whitespace-nowrap h-12 py-0! rounded-l-none rounded-r-full min-w-[120px] flex justify-center items-center"
+                variant="green"
+                class="w-auto whitespace-nowrap h-12 py-0! rounded-l-none rounded-r-full min-w-[120px] flex justify-center items-center cursor-pointer"
                 wire:loading.attr="disabled"
             >
                 <span wire:loading.remove wire:target="subscribe">Subscribe</span>
@@ -31,4 +36,4 @@
             </x-button-link>
         </form>
     @endif
-</div>
+</x-layouts.container>
