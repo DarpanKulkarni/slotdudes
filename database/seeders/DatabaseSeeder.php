@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         File::cleanDirectory(storage_path('app/public'));
 
-        User::factory()->create([
+        User::create([
             'name' => 'Tony Kion',
             'email' => 'tonykion5@gmail.com',
             'password' => Hash::make('TonyKion@123'),
