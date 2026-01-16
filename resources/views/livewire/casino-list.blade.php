@@ -15,7 +15,7 @@
                             @default Featured
                         @endswitch
                         <span class="inline-block transition-transform duration-300 rotate-90" x-bind:class="{ 'rotate-90': !open, '-rotate-90': open }">
-                            <x-icons.chevron-right class="w-4 h-4 stroke-2"/>
+                            <x-icons.chevron-right class="w-4 h-4 stroke-2" />
                         </span>
                     </span>
                 </x-button-link>
@@ -74,7 +74,7 @@
 
             <div wire:loading.flex wire:target="setSort" class="absolute inset-0 z-10 justify-center pt-20 bg-white/70 backdrop-blur-[1px] transition-all duration-300">
                 <div class="flex flex-col items-center gap-2 sticky top-40">
-                    <x-icons.loader class="w-10 h-10 text-primary-600 animate-spin"/>
+                    <x-icons.loader class="w-10 h-10 text-primary-600 animate-spin" />
                     <span class="text-primary-800 font-medium text-sm tracking-wide">Please wait...</span>
                 </div>
             </div>
@@ -92,7 +92,9 @@
             @endif
         </x-layouts.container>
     @else
-        <x-empty>No casinos/slots found.</x-empty>
+        <x-layouts.container class="py-12">
+            <x-empty>No casinos/slots found.</x-empty>
+        </x-layouts.container>
     @endif
 
     <x-button-link
