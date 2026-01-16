@@ -20,13 +20,13 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('TonyKion@123'),
         ]);
 
-        $this->call([
+        /*$this->call([
             PostCategoriesTableSeeder::class,
             PostsTableSeeder::class,
             ReviewCategoriesTableSeeder::class,
             SlotReviewsTableSeeder::class,
             PagesTableSeeder::class,
             CasinosTableSeeder::class,
-        ]);
+        ]);*/
     }
 }
