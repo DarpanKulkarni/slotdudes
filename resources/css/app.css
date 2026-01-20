@@ -36,3 +36,24 @@
     --color-secondary-950: oklch(13% 0.028 268.96);
 }
 
+.prose li::marker {
+    color: var(--tw-prose-body) !important;
+}
+
+.prose li {
+    margin: 0 !important;
+}
+
+.prose li p {
+    line-height: 1.6 !important;
+    margin: 6px;
+}
+
+.prose li p br {
+    display: none !important;
+}
+
+.prose li:not(:last-child) p {
+    margin-bottom: 0 !important;
+}
+
