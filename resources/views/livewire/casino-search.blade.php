@@ -32,14 +32,14 @@
         <x-layouts.container>
             @if (strlen($search) >= 3 && $casinos->isNotEmpty())
                 <div class="overflow-hidden">
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 -mb-px [&>*]:border-b [&>*]:border-r [&>*]:border-gray-200 [&>*:nth-child(2n)]:border-r-0 md:[&>*:nth-child(2n)]:border-r md:[&>*:nth-child(3n)]:border-r-0 lg:[&>*:nth-child(3n)]:border-r lg:[&>*:nth-child(4n)]:border-r-0">
+                    <div class="cd-casino-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 -mb-px [&>*]:border-b [&>*]:border-r [&>*]:border-gray-200 [&>*:nth-child(2n)]:border-r-transparent md:[&>*:nth-child(2n)]:border-r-gray-200 md:[&>*:nth-child(3n)]:border-r-transparent lg:[&>*:nth-child(3n)]:border-r-gray-200 lg:[&>*:nth-child(4n)]:border-r-transparent">
                         @foreach ($casinos as $casino)
                             <div
                                 wire:key="casino-{{ $casino->id }}"
                                 x-data="{ open: false }"
                                 @click.outside="open = false"
                                 @click="if(window.innerWidth < 1024) open = true"
-                                class="group aspect-square p-4 min-w-0 relative"
+                                class="cd-casino-grid__item group aspect-square p-4 min-w-0 relative"
                             >
                                 <img src="{{ $casino->getFirstMediaUrl('logos', 'thumb') }}"
                                      alt="{{ $casino->name . ' logo' }}" class="w-full">
