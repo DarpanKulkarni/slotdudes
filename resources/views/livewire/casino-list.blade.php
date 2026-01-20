@@ -43,33 +43,35 @@
         </x-layouts.container>
 
         <x-layouts.container class="relative">
-            <div class="cd-casino-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 overflow-hidden">
-                @foreach ($this->casinos as $casino)
-                    <div
-                        wire:key="casino-{{ $casino->id }}"
-                        x-data="{ open: false }"
-                        @click.outside="open = false"
-                        @click="if(window.innerWidth < 1024) open = true"
-                        class="cd-casino-grid__item group aspect-square p-4 min-w-0"
-                    >
-                        <img src="{{ $casino->getFirstMediaUrl('logos', 'thumb') }}" alt="{{ $casino->name . ' logo' }}" class="w-full">
-
+            <div class="overflow-hidden">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 -mb-px [&>*]:border-b [&>*]:border-r [&>*]:border-gray-200 [&>*:nth-child(2n)]:border-r-0 md:[&>*:nth-child(2n)]:border-r md:[&>*:nth-child(3n)]:border-r-0 lg:[&>*:nth-child(3n)]:border-r lg:[&>*:nth-child(4n)]:border-r-0">
+                    @foreach ($this->casinos as $casino)
                         <div
-                            class="absolute flex shrink flex-col items-center justify-center inset-0 p-4 gap-2 transition-opacity duration-300 opacity-0 pointer-events-none lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto"
-                            x-bind:class="{ 'opacity-100! pointer-events-auto!': open }"
+                            wire:key="casino-{{ $casino->id }}"
+                            x-data="{ open: false }"
+                            @click.outside="open = false"
+                            @click="if(window.innerWidth < 1024) open = true"
+                            class="group aspect-square p-4 min-w-0 relative"
                         >
-                            <x-button-link href="{{ $casino->link }}" variant="green" class="w-full px-2!" target="_blank">
-                                Visit casino
-                                <span><x-icons.chevron-right class="w-4 h-4 ms-0 md:ms-2 stroke-3"/></span>
-                            </x-button-link>
+                            <img src="{{ $casino->getFirstMediaUrl('logos', 'thumb') }}" alt="{{ $casino->name . ' logo' }}" class="w-full">
 
-                            <x-button-link href="{{ route('casino.detail', $casino->slug) }}" variant="secondary" class="w-full px-2!">
-                                Read more
-                                <span><x-icons.chevron-right class="w-4 h-4 ms-0 md:ms-2 stroke-3"/></span>
-                            </x-button-link>
+                            <div
+                                class="absolute flex shrink flex-col items-center justify-center inset-0 p-4 gap-2 transition-opacity duration-300 opacity-0 pointer-events-none lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto"
+                                x-bind:class="{ 'opacity-100! pointer-events-auto!': open }"
+                            >
+                                <x-button-link href="{{ $casino->link }}" variant="green" class="w-full px-2!" target="_blank">
+                                    Visit casino
+                                    <span><x-icons.chevron-right class="w-4 h-4 ms-0 md:ms-2 stroke-3"/></span>
+                                </x-button-link>
+
+                                <x-button-link href="{{ route('casino.detail', $casino->slug) }}" variant="secondary" class="w-full px-2!">
+                                    Read more
+                                    <span><x-icons.chevron-right class="w-4 h-4 ms-0 md:ms-2 stroke-3"/></span>
+                                </x-button-link>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
 
             <div wire:loading.flex wire:target="setSort" class="absolute inset-0 z-10 justify-center pt-20 bg-white/70 backdrop-blur-[1px] transition-all duration-300">
