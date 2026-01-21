@@ -5,14 +5,7 @@
         </x-layouts.container>
     </section>
 
-    <section class="bg-primary-600 py-12 border-b border-white/10">
-        <x-layouts.container class="px-6 lg:px-4 space-y-8 pb-12">
-            <div class="prose prose-invert prose-lg">
-                <h2>Latest from SlotDudes</h2>
-            </div>
-            <livewire:latest-posts />
-        </x-layouts.container>
-    </section>
+    <livewire:latest-posts />
 @endif
 
 <footer class="bg-primary-600 text-white/70 text-sm text-center py-6 space-y-4">

@@ -23,6 +23,10 @@ class PostsTableSeeder extends Seeder
 
         $postsData = json_decode(File::get($path), true);
 
+        if (PostCategory::count() === 0) {
+            $this->call(PostCategoriesTableSeeder::class);
+        }
+
         $categories = PostCategory::all();
 
         foreach ($postsData as $postData) {
