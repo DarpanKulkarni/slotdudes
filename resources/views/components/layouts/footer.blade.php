@@ -4,6 +4,15 @@
             {!! app(\App\Settings\SiteSettings::class)->footerText !!}
         </x-layouts.container>
     </section>
+
+    <section class="bg-primary-600 py-12 border-b border-white/10">
+        <x-layouts.container class="px-6 lg:px-4 space-y-8 pb-12">
+            <div class="prose prose-invert prose-lg">
+                <h2>Latest from SlotDudes</h2>
+            </div>
+            <livewire:latest-posts />
+        </x-layouts.container>
+    </section>
 @endif
 
 <footer class="bg-primary-600 text-white/70 text-sm text-center py-6 space-y-4">
@@ -29,3 +38,8 @@
         {!! app(\App\Settings\SiteSettings::class)->copyrightText !!}
     </div>
 </footer>
+
+@if(request()->is('/'))
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+@endif

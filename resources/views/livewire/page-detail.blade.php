@@ -15,6 +15,4 @@
             </x-layouts.container>
         </section>
     @endif
-
-
 </div>
