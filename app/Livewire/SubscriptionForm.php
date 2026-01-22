@@ -10,6 +10,7 @@ use Livewire\Component;
 class SubscriptionForm extends Component
 {
     public $email = '';
+    public $full_name = ''; // Honeypot field
     public $isSubscribed = false;
 
     protected $rules = [
@@ -22,6 +23,11 @@ class SubscriptionForm extends Component
 
     public function subscribe()
     {
+        // Honeypot check: if full_name is filled, it's a bot.
+        if ($this->full_name) {
+            return;
+        }
+
         $this->validate();
 
         $subscriber = Subscriber::create([

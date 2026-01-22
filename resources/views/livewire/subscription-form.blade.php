@@ -22,6 +22,11 @@
                 @error('email') <span class="text-red-300 text-sm mt-1 block absolute left-0 -bottom-6">{{ $message }}</span> @enderror
             </div>
 
+            {{-- Honeypot field --}}
+            <div class="hidden">
+                <input wire:model="full_name" type="text" name="full_name" autocomplete="off" tabindex="-1">
+            </div>
+
             <x-button-link
                 tag="button"
                 type="submit"
