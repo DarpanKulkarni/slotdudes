@@ -22,7 +22,7 @@
                                                 <span>{{ $item['published_at']->format('M d, Y') }}</span>
                                             </div>--}}
 
-                                            <h3 class="text-center lg:text-start text-2xl font-bold">
+                                            <h3 class="text-center lg:text-start text-xl lg:text-2xl font-bold">
                                                 <a href="{{ $item['url'] }}" class="text-white hover:text-primary-300 transition-colors">
                                                     {{ $item['title'] }}
                                                 </a>
