@@ -93,9 +93,17 @@
             margin: 0;
             margin-bottom: 15px;
         }
+        ul, ol {
+            margin-left: 20px;
+            padding-left: 0;
+        }
         p li, ul li, ol li {
-            list-style-position: inside;
-            margin-left: 5px;
+            list-style-position: outside;
+            margin-left: 0;
+        }
+        li p {
+            display: inline;
+            margin: 0;
         }
         a {
             color: #3498db;
