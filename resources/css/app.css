@@ -57,3 +57,7 @@
     margin-bottom: 0 !important;
 }
 
+.prose a {
+    word-wrap: break-word;
+}
+
