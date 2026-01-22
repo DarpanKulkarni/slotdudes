@@ -13,24 +13,26 @@
                                 <li class="splide__slide">
                                     <article class="flex flex-col lg:flex-row items-center gap-6">
                                         <div class="w-full lg:w-[320px] shrink-0">
-                                            <a href="{{ $item['url'] }}" class="block overflow-hidden rounded-lg">
+                                            <a href="{{ $item['url'] }}" class="block overflow-hidden">
                                                 <img src="{{ $item['image_url'] }}" alt="{{ $item['title'] }}" class="w-full h-auto object-cover aspect-video hover:scale-105 transition-transform duration-300">
                                             </a>
                                         </div>
                                         <div class="w-full space-y-4 text-left">
-                                            <div class="flex items-center gap-4 text-sm text-primary-200">
+                                            {{--<div class="hidden lg:flex items-center gap-4 text-sm text-primary-200">
                                                 <span>{{ $item['published_at']->format('M d, Y') }}</span>
-                                            </div>
+                                            </div>--}}
 
-                                            <h3 class="text-2xl font-bold">
+                                            <h3 class="text-center lg:text-start text-2xl font-bold">
                                                 <a href="{{ $item['url'] }}" class="text-white hover:text-primary-300 transition-colors">
                                                     {{ $item['title'] }}
                                                 </a>
                                             </h3>
 
-                                            <p class="text-gray-300 line-clamp-2">
-                                                {{ $item['excerpt'] }}
-                                            </p>
+                                            <div class="hidden lg:block">
+                                                <p class="text-gray-300 line-clamp-3">
+                                                    {{ $item['excerpt'] }}
+                                                </p>
+                                            </div>
                                         </div>
                                     </article>
                                 </li>
