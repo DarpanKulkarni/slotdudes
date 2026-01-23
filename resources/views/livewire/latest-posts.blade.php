@@ -46,7 +46,7 @@
                                 type: 'loop',
                                 perPage: 1,
                                 autoplay: true,
-                                interval: 3000,
+                                interval: 10000,
                                 arrows: true,
                                 pagination: true,
                                 gap: '2rem',
