@@ -13,7 +13,20 @@
     @scroll.window="isScrolled = (window.pageYOffset >= (headerHeight - 80))"
     class="z-40"
 >
-    <header x-ref="header" class="relative bg-primary-600 transition-all duration-300 shadow-lg shadow-gray-800/40">
+    <style>
+        .custom-header-bg {
+            background-image: url("{{ asset('images/cd-header-bg-3-mobile.webp') }}");
+        }
+        @media (min-width: 768px) {
+            .custom-header-bg {
+                background-image: url("{{ asset('images/cd-header-image-3.webp') }}");
+            }
+        }
+    </style>
+    <header
+        x-ref="header"
+        class="custom-header-bg relative bg-cover bg-center lg:bg-top bg-no-repeat transition-all duration-300 shadow-lg shadow-gray-800/40"
+    >
         <x-layouts.container
             class="flex flex-col items-center justify-center space-y-8 pt-10 md:pt-16 pb-10 md:pb-16"
             x-bind:class="searchOpen ? 'pt-26 md:pt-32' : 'pt-10 md:pt-16'"
