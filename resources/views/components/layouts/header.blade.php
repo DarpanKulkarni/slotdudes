@@ -15,12 +15,7 @@
 >
     <style>
         .custom-header-bg {
-            background-image: url("{{ asset('images/cd-header-bg-3-mobile.webp') }}");
-        }
-        @media (min-width: 768px) {
-            .custom-header-bg {
-                background-image: url("{{ asset('images/cd-header-image-3.webp') }}");
-            }
+            background-image: url("{{ asset('images/cd-header-image.webp') }}");
         }
     </style>
     <header
