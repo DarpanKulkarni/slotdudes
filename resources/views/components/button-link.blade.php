@@ -21,6 +21,7 @@
         'secondary-outline' => 'border-2 border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-white focus-visible:ring-secondary-600',
         'green' => 'bg-green-500 hover:bg-green-600 focus-visible:ring-green-600 text-white',
         'green-outline' => 'border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white focus-visible:ring-green-600',
+        'transparent' => 'text-white bg-gradient-to-b from-white/10 hover:from-white/20 to-transparent border-2 border-white/20 hover:border-white/30 focus-visible:ring-white',
         'ghost' => 'bg-transparent text-secondary-600 hover:bg-secondary-50 focus-visible:ring-secondary-600',
     ];
 
@@ -34,5 +35,5 @@
 @endphp
 
 <{{ $tag }} {{ $attributes->merge(['class' => $classes]) }}>
-{{ $slot }}
+    {{ $slot }}
 </{{ $tag }}>
