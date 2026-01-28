@@ -93,6 +93,10 @@
                 </x-button-link>
             @endif
         </x-layouts.container>
+
+        <x-layouts.container>
+            <livewire:faq />
+        </x-layouts.container>
     @else
         <x-layouts.container class="py-12">
             <x-empty>No casinos/slots found.</x-empty>
