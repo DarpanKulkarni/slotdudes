@@ -9,7 +9,7 @@
                 <button
                     type="button"
                     @click="activeAccordion = activeAccordion === {{ $faq->id }} ? null : {{ $faq->id }}"
-                    class="flex w-full items-center justify-between py-2 text-left focus:outline-none group text-gray-900"
+                    class="flex w-full items-center justify-between py-2 lg:py-4 text-left focus:outline-none group text-gray-900"
                     :class="{ '!text-primary-600': activeAccordion === {{ $faq->id }} }"
                 >
                     <span class="text-lg font-medium leading-7 flex items-center min-h-[5.25rem] md:min-h-0">
