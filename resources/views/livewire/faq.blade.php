@@ -1,7 +1,7 @@
 <div class="space-y-8">
-    <div class="prose prose-lg">
+    {{--<div class="prose prose-lg">
         <h2 class="text-black">Frequently Asked Questions</h2>
-    </div>
+    </div>--}}
 
     <div class="w-full border-y border-gray-200 divide-y divide-gray-200" x-data="{ activeAccordion: null }">
         @foreach ($faqs as $faq)
