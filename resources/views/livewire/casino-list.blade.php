@@ -99,23 +99,7 @@
         </x-layouts.container>
     @endif
 
-    <x-layouts.container class="flex flex-col md:flex-row justify-center gap-8">
-        <x-info-box
-            :background-image="asset('/images/cd-box-bg-black.jpg')"
-            title="Online Casino News"
-            description="News and insights from the online casino industry"
-            :route="route('posts.list')"
-        />
-
-        <x-info-box
-            :background-image="asset('/images/cd-box-bg-blue.jpg')"
-            title="Slot Reviews"
-            description="Reviews of popular and new slots from top game providers"
-            :route="route('slot-reviews.list')"
-        />
-    </x-layouts.container>
-
-    <x-layouts.container>
+    <x-layouts.container class="mt-12">
         <livewire:faq/>
     </x-layouts.container>
 

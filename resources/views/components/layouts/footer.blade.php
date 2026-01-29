@@ -1,4 +1,28 @@
 @if(request()->is('/'))
+    <x-layouts.container class="flex flex-col md:flex-row justify-center gap-8 px-4 lg:px-8 max-w-full py-12">
+        <x-info-box
+            :background-image="asset('/images/cd-box-bg-black.jpg')"
+            title="Online Casino News"
+            description="News and insights from the online casino industry"
+            :route="route('posts.list')"
+        />
+
+        <x-info-box
+            :background-image="asset('/images/cd-box-bg-blue.jpg')"
+            title="Online Slot Reviews"
+            description="Reviews of popular and new slots from top game providers"
+            :route="route('slot-reviews.list')"
+        />
+
+        <x-info-box
+            :background-image="asset('/images/cd-box-bg-blue.jpg')"
+            title="Got Questions?"
+            description="We are always here to help"
+            route="mailto:slotdudes.com@gmail.com"
+            button-label="Email Us"
+        />
+    </x-layouts.container>
+
     <livewire:latest-posts />
 
     <section class="bg-primary-600 py-12 border-b border-white/10">
